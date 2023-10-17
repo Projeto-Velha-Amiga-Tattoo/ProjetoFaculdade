@@ -1,6 +1,8 @@
 
 package Objects;
 
+import java.util.Date;
+
 public class Funcionario extends Pessoa {
     private int id_funcionario;
     private String user;
@@ -8,12 +10,8 @@ public class Funcionario extends Pessoa {
     private String funcao;
     //private Servico servico;
     //Um funcionario pode fazer varios servicos.
-
     
-    // data_nasc  está como String. Para corrigir -> (java.util.Date ???)//
     
-
-
     // Construtor de Funcionario
     
     public Funcionario(){

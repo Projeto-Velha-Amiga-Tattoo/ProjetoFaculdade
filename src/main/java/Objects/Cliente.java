@@ -1,5 +1,6 @@
 
 package Objects;
+import java.util.Date;
 
 public class Cliente extends Pessoa {
     private int id_cliente;

@@ -1,14 +1,17 @@
 package Objects;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+
 public class Pessoa {
     private String nome;
     private String cpf;
     private String telefone;
-    private String data_nasc;
+    private LocalDate data_nasc;
     private Endereco endereco;
     
-    // Data de nascimento está no tipo String pq não consegui ainda colocar o formato date!!!
-
+    DateTimeFormatter data = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     // Construtores de Pessoa
     
@@ -20,13 +23,12 @@ public class Pessoa {
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
-        this.data_nasc = data_nasc;
+        this.data_nasc = LocalDate.parse(data_nasc,data);
         this.endereco = endereco;
     }
 
     
-
-    //Getters and setters
+//Getters and setters
 
     public String getNome() {
         return nome;
@@ -53,11 +55,11 @@ public class Pessoa {
     }
 
     public String getData_nasc() {
-        return data_nasc;
+        return data.format(data_nasc);
     }
 
     public void setData_nasc(String data_nasc) {
-        this.data_nasc = data_nasc;
+        this.data_nasc = LocalDate.parse(data_nasc,data);
     }
 
     public Endereco getEndereco() {
