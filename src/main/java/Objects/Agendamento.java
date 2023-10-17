@@ -1,30 +1,34 @@
 
 package Objects;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Agendamento {
    private int id_agendamento;
     private Funcionario funcionario;
     private Cliente cliente;
-    //Data : Date
-    //Horario : Date
+    private LocalDateTime horario;
     private String observacao;
 
-
+    DateTimeFormatter data = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
     // Construtores de Agendamento
     
     public Agendamento(){
 
     }
 
-    public Agendamento(int id_agendamento, Funcionario funcionario, Cliente cliente, String observacao) {
+    public Agendamento(int id_agendamento, Funcionario funcionario, Cliente cliente, String horario, String observacao) {
         this.id_agendamento = id_agendamento;
         this.funcionario = funcionario;
         this.cliente = cliente;
+        this.horario = LocalDateTime.parse(horario,data);
         this.observacao = observacao;
     }
-
-
     
+    public String exibirAgendamento(){
+        String str = "Nome do cliente: " + getCliente().getNome() + "\n" + "Funcionario: " + getFuncionario().getNome() +"\n" + "Data do agendamento: " + getHorario() + "\n" + "Observação: " + getObservacao();
+        return str;
+    }
 
     // Getters and Setters
 
@@ -51,6 +55,16 @@ public class Agendamento {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
+    public String getHorario() {
+        return data.format(horario);
+    }
+
+    public void setHorario(String horario) {
+        this.horario = LocalDateTime.parse(horario,data);
+    }
+    
+    
 
     public String getObservacao() {
         return observacao;
