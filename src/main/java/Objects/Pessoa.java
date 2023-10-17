@@ -3,33 +3,33 @@ package Objects;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-
 public class Pessoa {
+
     private String nome;
     private String cpf;
     private String telefone;
     private LocalDate data_nasc;
     private Endereco endereco;
-    
+
+    //classe responsável por formatar um padrão diferente do formato ISO 
     DateTimeFormatter data = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     // Construtores de Pessoa
-    
-    public Pessoa(){
+    public Pessoa() {
 
     }
 
+    // recebendo 'data_nasc' no formato de String no construtor
     public Pessoa(String nome, String cpf, String telefone, String data_nasc, Endereco endereco) {
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
-        this.data_nasc = LocalDate.parse(data_nasc,data);
+        // convertendo data do tipo String ("dd/MM/yyyy") para LocalDate (yyyy-MM-dd)
+        this.data_nasc = LocalDate.parse(data_nasc, data);
         this.endereco = endereco;
     }
 
-    
 //Getters and setters
-
     public String getNome() {
         return nome;
     }
@@ -59,7 +59,7 @@ public class Pessoa {
     }
 
     public void setData_nasc(String data_nasc) {
-        this.data_nasc = LocalDate.parse(data_nasc,data);
+        this.data_nasc = LocalDate.parse(data_nasc, data);
     }
 
     public Endereco getEndereco() {
