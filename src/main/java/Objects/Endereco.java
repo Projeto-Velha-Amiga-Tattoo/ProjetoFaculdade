@@ -15,19 +15,31 @@ public class Endereco {
     public Endereco() {
 
     }
-
+    
+   
+    // Falta a validação para poder inserir somente numero inteiro.
+    // Quando imprime a mensagem de erro ainda não é possivel informar qual dado foi digitado errado, talvez seja possivel usando try/catch.
+    
     public Endereco(int id_endereco, String rua, String bairro, int numero, String complemento, String cidade, String cep, String estado) {
-        this.id_endereco = id_endereco;
-        this.rua = rua;
-        this.bairro = bairro;
-        this.numero = numero;
-        this.complemento = complemento;
-        this.cidade = cidade;
-        this.cep = cep;
-        this.estado = estado;
+        if (Validacoes.Nome.validaString(rua) && Validacoes.Nome.validaString(bairro) && Validacoes.Nome.validaString(cidade) && Validacoes.Cep.validarCEP(cep)){
+            this.id_endereco = id_endereco; 
+            this.rua = rua;
+            this.bairro = bairro;
+            this.numero = numero;
+            this.complemento = complemento;
+            this.cidade = cidade;
+            this.cep = cep;
+            this.estado = estado;
+        } else {
+            System.out.println("Algum dado não está correto");
+            System.exit(0);
+        }
+
     }
 
     //Getters and Setters
+    // Não está fazendo as validaçoes dentro desses métodos, não sei se pode.
+   
     public int getId_endereco() {
         return id_endereco;
     }

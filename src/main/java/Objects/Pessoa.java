@@ -21,12 +21,16 @@ public class Pessoa {
 
     // recebendo 'data_nasc' no formato de String no construtor
     public Pessoa(String nome, String cpf, String telefone, String data_nasc, Endereco endereco) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.telefone = telefone;
-        // convertendo data do tipo String ("dd/MM/yyyy") para LocalDate (yyyy-MM-dd)
-        this.data_nasc = LocalDate.parse(data_nasc, data);
-        this.endereco = endereco;
+
+        if (Validacoes.Nome.validarNomes(nome) && Validacoes.Cpf.validarCPF(cpf) && Validacoes.Cpf.CPFVerdadeiro(cpf) && Validacoes.Telefone.validarTelefone(telefone)) {
+            this.nome = nome;
+            this.cpf = cpf;
+            this.telefone = telefone;
+            // convertendo data do tipo String ("dd/MM/yyyy") para LocalDate (yyyy-MM-dd)
+            this.data_nasc = LocalDate.parse(data_nasc, data);
+            this.endereco = endereco;
+        }
+
     }
 
 //Getters and setters
