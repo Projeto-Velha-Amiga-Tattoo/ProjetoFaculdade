@@ -8,7 +8,7 @@ public class Nome {
         for (String n : nome) {
             teste = n.matches("^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+$");
             if (teste == false) {
-                break;
+                throw new IllegalArgumentException("Caracteres inválidos");
             }
         }
         return teste;
@@ -16,14 +16,21 @@ public class Nome {
     
 
     public static boolean validaString(String str) {
-        return str.matches("[a-zA-Z0-9]+");
+        boolean teste = str.matches("[a-zA-Z0-9]+");
+        if (teste == false){
+            throw new IllegalArgumentException("Caractere especial não é aceito");
+        }
+        return teste; 
     }
 
     public static boolean validarTamanho(String x) {
         boolean teste = false;
         if (x.length() < 5) {
             teste = true;
+        } else {
+            throw new IllegalArgumentException("Deve ser maior que 5 caracteres");
         }
+        
         return teste;
     }
 

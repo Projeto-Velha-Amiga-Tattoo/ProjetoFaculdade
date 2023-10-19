@@ -20,19 +20,20 @@ public class Endereco {
     // Quando imprime a mensagem de erro ainda não é possivel informar qual dado foi digitado errado, talvez seja possivel usando try/catch.
     public Endereco(int id_endereco, String rua, String bairro, int numero, String complemento, String cidade, String cep, String estado) {
         try {
-            if (Validacoes.Nome.validarNomes(rua) && Validacoes.Nome.validarNomes(bairro) && Validacoes.Nome.validarNomes(cidade) && Validacoes.Cep.validarCEP(cep)) {
-                this.id_endereco = id_endereco;
-                this.rua = rua;
-                this.bairro = bairro;
-                this.numero = numero;
-                this.complemento = complemento;
-                this.cidade = cidade;
-                this.cep = cep;
-                this.estado = estado;
-                System.out.println("Dados corretos");
-            } else {
-                throw new IllegalArgumentException("Dados inválidos");
-            }
+            Validacoes.Nome.validarNomes(rua);
+            Validacoes.Nome.validarNomes(bairro);
+            Validacoes.Nome.validarNomes(cidade);
+            Validacoes.Cep.validarCEP(cep);
+            this.id_endereco = id_endereco;
+            this.rua = rua;
+            this.bairro = bairro;
+            this.numero = numero;
+            this.complemento = complemento;
+            this.cidade = cidade;
+            this.cep = cep;
+            this.estado = estado;
+            System.out.println("Dados corretos");
+
         } catch (IllegalArgumentException e) {
             System.out.println("Ocorreu um erro na criação do objeto: " + e.getMessage());
         }

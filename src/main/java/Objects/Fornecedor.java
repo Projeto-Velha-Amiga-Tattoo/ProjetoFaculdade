@@ -11,15 +11,16 @@ public class Fornecedor {
     @SuppressWarnings("empty-statement")
     public Fornecedor(int id_fornecedor, String nome, String cnpj, String telefone, Endereco endereco) {
         try {
-            if (Validacoes.Nome.validarNomes(cnpj) && Validacoes.Cnpj.validarCNPJ(cnpj) && Validacoes.Cnpj.CNPJVerdadeiro(cnpj) && Validacoes.Telefone.validarTelefone(cnpj)) {
+            Validacoes.Nome.validarNomes(cnpj);
+            Validacoes.Cnpj.validarCNPJ(cnpj);
+            Validacoes.Cnpj.CNPJVerdadeiro(cnpj);
+            Validacoes.Telefone.validarTelefone(cnpj);
                 this.id_fornecedor = id_fornecedor;
                 this.nome = nome;
                 this.cnpj = cnpj;
                 this.telefone = telefone;
                 this.endereco = endereco;
-            } else {
-                throw new IllegalArgumentException("Dados inválidos.");
-            }
+           
         } catch (IllegalArgumentException e){
            System.out.println("Erro na criação do objeto: " + e.getMessage());
         }

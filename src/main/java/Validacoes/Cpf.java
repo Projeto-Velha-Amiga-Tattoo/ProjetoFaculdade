@@ -5,6 +5,9 @@ public class Cpf {
     public static boolean validarCPF(String x) {
         boolean teste = false;
         teste = x.matches("[0-9]{11}");
+        if (teste == false){
+            throw new IllegalArgumentException("O CPF não está no formato correto.");
+        }
         return teste;
     }
 
@@ -19,8 +22,7 @@ public class Cpf {
         if (dv1 > 9) {
             dv1 = 0;
         }
-        System.out.println("Digito 1: " + dv1);
-        if (dv1 == Character.getNumericValue(x.charAt(9))) {
+        if (dv1 == Character.getNumericValue(x.charAt(9))) {   
             cont = 11;
             soma = 0;
             for (int y = 0; y < 10; y++) {
@@ -35,10 +37,14 @@ public class Cpf {
             if (dv2 > 9) {
                 dv2 = 0;
             }
-            System.out.println("Digito 2: " + dv2);
             if (dv2 == Character.getNumericValue(x.charAt(10))) {
                 teste = true;
+            } else{
+                teste = false;
+                throw new IllegalArgumentException("O CPF não existe.");
             }
+        } else {
+            throw new IllegalArgumentException("O CPF não existe.");
         }
         return teste;
     }
