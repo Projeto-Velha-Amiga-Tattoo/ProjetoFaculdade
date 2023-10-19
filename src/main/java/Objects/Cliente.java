@@ -14,6 +14,13 @@ public class Cliente extends Pessoa {
         this.id_cliente = id_cliente;
     }
 
+    public String exibirCliente() {
+        String str = "Nome do cliente: " + getNome() + "\n" + "CPF: " + getCpf() + "\n"
+                + "Telefone: " + getTelefone() + "\n" + "Data de nascimento: " + getData_nasc() + "\n" + "Endereço: "
+                + getEndereco().getRua() + "," + getEndereco().getNumero() + "(" + getEndereco().getComplemento() + ")," + getEndereco().getBairro() + "," + getEndereco().getCidade() + "," + getEndereco().getEstado();
+        return str;
+    }
+
     // Getters and Setters
     public int getId_cliente() {
         return id_cliente;

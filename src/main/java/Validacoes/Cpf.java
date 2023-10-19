@@ -16,7 +16,7 @@ public class Cpf {
             cont--;
         }
         dv1 = 11 - (soma % 11);
-        if (dv1 == 10) {
+        if (dv1 > 9) {
             dv1 = 0;
         }
         System.out.println("Digito 1: " + dv1);
@@ -32,7 +32,7 @@ public class Cpf {
                 }
             }
             dv2 = 11 - (soma % 11);
-            if (dv2 == 10) {
+            if (dv2 > 9) {
                 dv2 = 0;
             }
             System.out.println("Digito 2: " + dv2);
@@ -42,4 +42,5 @@ public class Cpf {
         }
         return teste;
     }
+
 }

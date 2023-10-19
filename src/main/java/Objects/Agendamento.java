@@ -73,7 +73,6 @@ public class Agendamento {
     public void setServico(Servico servico) {
         this.servico = servico;
     }
-    
 
     public String getObservacao() {
         return observacao;

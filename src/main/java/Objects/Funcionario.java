@@ -20,6 +20,13 @@ public class Funcionario extends Pessoa {
         this.funcao = funcao;
     }
 
+    public String exibirFuncionario() {
+        String str = "Nome do funcionario: " + getNome() + "\n" + "CPF: " + getCpf() + "\n"
+                + "Telefone: " + getTelefone() + "\n" + "Data de nascimento: " + getData_nasc() + "\n" + "Endereço: "
+                + getEndereco().getRua() + "," + getEndereco().getNumero() + "(" + getEndereco().getComplemento() + ")," + getEndereco().getBairro() + "," + getEndereco().getCidade() + "," + getEndereco().getEstado();
+        return str;
+    }
+
     // Getters and Setters
     public int getId_funcionario() {
         return id_funcionario;
