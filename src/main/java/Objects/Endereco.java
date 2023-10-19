@@ -31,8 +31,7 @@ public class Endereco {
             this.cep = cep;
             this.estado = estado;
         } else {
-            System.out.println("Algum dado não está correto");
-            System.exit(0);
+            throw new IllegalArgumentException("Dados inválidos");
         }
 
     }

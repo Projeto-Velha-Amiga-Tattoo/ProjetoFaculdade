@@ -29,6 +29,8 @@ public class Pessoa {
             // convertendo data do tipo String ("dd/MM/yyyy") para LocalDate (yyyy-MM-dd)
             this.data_nasc = LocalDate.parse(data_nasc, data);
             this.endereco = endereco;
+        } else {
+            throw new IllegalArgumentException("Dados inválidos");
         }
 
     }
