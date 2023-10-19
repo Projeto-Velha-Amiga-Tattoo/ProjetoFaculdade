@@ -32,7 +32,6 @@ public class Endereco {
             this.cidade = cidade;
             this.cep = cep;
             this.estado = estado;
-            System.out.println("Dados corretos");
 
         } catch (IllegalArgumentException e) {
             System.out.println("Ocorreu um erro na criação do objeto: " + e.getMessage());

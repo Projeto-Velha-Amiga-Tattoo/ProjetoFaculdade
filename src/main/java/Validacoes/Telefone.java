@@ -6,7 +6,7 @@ public class Telefone {
         boolean teste = false;
         teste = x.matches("[0-9]{11,12}");
         if (teste == false){
-            throw new IllegalArgumentException("O número informado não é valido.");
+            throw new IllegalArgumentException("O número de telefone informado não é valido.");
         }
         return teste;
     }

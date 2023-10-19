@@ -4,9 +4,8 @@ public class VelhaAmiga {
 
     public static void main(String[] args) {
 
-        Endereco e1 = new Endereco(1, "Rua Serra dos Cocais", "Jardim Panorama", 239, "casa", "Ipatinga", "35164232", "Minas Gerais");
-        Cliente c1 = new Cliente(1,"Luan","15583345645","31997514125","11/07/2000",e1);
-        System.out.println(c1.exibirCliente());
+        Endereco e1 = new Endereco(1, "", "", 000, "", "", "", "");
+        Cliente c1 = new Cliente(1,"","","","",e1);
        
     }
 }
