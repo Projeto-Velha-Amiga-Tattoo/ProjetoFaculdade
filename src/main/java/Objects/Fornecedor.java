@@ -8,13 +8,12 @@ public class Fornecedor {
     private String telefone;
     private Endereco endereco;
 
-    @SuppressWarnings("empty-statement")
     public Fornecedor(int id_fornecedor, String nome, String cnpj, String telefone, Endereco endereco) {
         try {
-            Validacoes.Nome.validarNomes(cnpj);
+            Validacoes.Nome.validarNomes(nome);
             Validacoes.Cnpj.validarCNPJ(cnpj);
             Validacoes.Cnpj.CNPJVerdadeiro(cnpj);
-            Validacoes.Telefone.validarTelefone(cnpj);
+            Validacoes.Telefone.validarTelefone(telefone);
                 this.id_fornecedor = id_fornecedor;
                 this.nome = nome;
                 this.cnpj = cnpj;

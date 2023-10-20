@@ -24,7 +24,6 @@ public class Cnpj {
         if (dv1 == 1) {
             dv1 = 0;
         }
-        System.out.println("Digito 1: " + dv1);
         if (dv1 == Character.getNumericValue(x.charAt(12))) {
             cont = 6;
             soma = 0;
@@ -39,10 +38,13 @@ public class Cnpj {
             if (dv2 == 1) {
                 dv2 = 0;
             }
-            System.out.println("Digito 2: " + dv2);
             if (dv2 == Character.getNumericValue(x.charAt(13))) {
                 teste = true;
+            } else{
+                throw new IllegalArgumentException("O CNPJ informado não existe.");
             }
+        } else {
+            throw new IllegalArgumentException("O CNPJ informado não existe.");
         }
         return teste;
     }
