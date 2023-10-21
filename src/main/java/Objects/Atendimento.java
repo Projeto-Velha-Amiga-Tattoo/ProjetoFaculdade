@@ -8,7 +8,10 @@ public class Atendimento {
     private Agendamento agendamento;
     private ArrayList<Produto> produtos = new ArrayList<>();
     
-
+    // ..... Não sei se esse ArrayList de produto está feito corretamente, ao gerar o construtor pela IDE ele não foi pra dentro do construtor  
+    // E não testei essa parte ainda
+    // Talvez dê para criar um metódo para exibir os dados do agendamento, igual fiz em outras classes.
+    
     public Atendimento(int id_atendimento, Agendamento agendamento) {
         this.id_atendimento = id_atendimento;
         this.agendamento = agendamento;

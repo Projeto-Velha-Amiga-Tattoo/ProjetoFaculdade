@@ -12,6 +12,8 @@ public class Funcionario extends Pessoa {
 
     }
 
+    // Não coloquei validação para user,senha e função.
+    
     public Funcionario(int id_funcionario, String user, String password, String funcao, String nome, String cpf, String telefone, String data_nasc, Endereco endereco) {
         super(nome, cpf, telefone, data_nasc, endereco);
         this.id_funcionario = id_funcionario;

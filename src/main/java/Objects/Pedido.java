@@ -10,6 +10,8 @@ public class Pedido {
     private LocalDate data_pedido;
     private ArrayList<Produto> produtos = new ArrayList<>();
     
+    // Não sei se o ArrayList está certo.
+    
     DateTimeFormatter data = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public Pedido(int id_pedido, Fornecedor fornecedor, String data_pedido) {

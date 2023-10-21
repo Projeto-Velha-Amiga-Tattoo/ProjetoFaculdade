@@ -11,6 +11,8 @@ public class Venda {
     private Cliente cliente;
     private Funcionario funcionario;
     
+    // Não sei se o ArrayList está certo.
+    
     DateTimeFormatter data = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public Venda(int id_venda, String data_venda, Cliente cliente, Funcionario funcionario) {

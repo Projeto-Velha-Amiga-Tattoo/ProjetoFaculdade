@@ -8,7 +8,10 @@ public class Cliente extends Pessoa {
     public Cliente() {
 
     }
-
+    
+    // Acredito que não tem nada de errado com essa classe, as validações estão sendo feitas na classe mãe.
+    
+    
     public Cliente(int id_cliente, String nome, String cpf, String telefone, String data_nasc, Endereco endereco) {
         super(nome, cpf, telefone, data_nasc, endereco);
         this.id_cliente = id_cliente;

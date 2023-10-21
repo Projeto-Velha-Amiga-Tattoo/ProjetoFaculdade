@@ -17,7 +17,7 @@ public class Endereco {
     }
 
     // Falta a validação para poder inserir somente numero inteiro.
-    // Quando imprime a mensagem de erro ainda não é possivel informar qual dado foi digitado errado, talvez seja possivel usando try/catch.
+   
     public Endereco(int id_endereco, String rua, String bairro, int numero, String complemento, String cidade, String cep, String estado) {
         try {
             Validacoes.Nome.validarNomes(rua);
