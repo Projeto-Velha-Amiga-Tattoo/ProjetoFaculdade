@@ -1,24 +1,32 @@
-
 package Objects;
 
 import java.util.ArrayList;
 
 public class Atendimento {
+
     private int id_atendimento;
     private Agendamento agendamento;
-    private ArrayList<Produto> produtos = new ArrayList<>();
-    
-    // ..... Não sei se esse ArrayList de produto está feito corretamente, ao gerar o construtor pela IDE ele não foi pra dentro do construtor  
-    // E não testei essa parte ainda
+    private ArrayList<Produto> arrAtendimento;
+
     // Talvez dê para criar um metódo para exibir os dados do agendamento, igual fiz em outras classes.
-    
-    public Atendimento(int id_atendimento, Agendamento agendamento) {
+    public Atendimento(int id_atendimento, Agendamento agendamento, ArrayList<Produto> arrAtendimento) {
         this.id_atendimento = id_atendimento;
         this.agendamento = agendamento;
+        this.arrAtendimento = arrAtendimento;
     }
-    
-    
 
+    // Métodos do ArrayList
+    public void addAtendimento(Produto atendimento) {
+        this.arrAtendimento.add(atendimento);
+    }
+
+    public void getAllAtendimento() {
+        for (int i = 0; i < this.arrAtendimento.size(); i++) {
+            System.out.println();
+        }
+    }
+
+    // Getters and Setters
     public int getId_atendimento() {
         return id_atendimento;
     }
@@ -35,13 +43,12 @@ public class Atendimento {
         this.agendamento = agendamento;
     }
 
-    public ArrayList<Produto> getProdutos() {
-        return produtos;
+    public ArrayList<Produto> getArrAtendimento() {
+        return arrAtendimento;
     }
 
-    public void setProdutos(ArrayList<Produto> produtos) {
-        this.produtos = produtos;
+    public void setArrAtendimento(ArrayList<Produto> arrAtendimento) {
+        this.arrAtendimento = arrAtendimento;
     }
-    
-    
+
 }
