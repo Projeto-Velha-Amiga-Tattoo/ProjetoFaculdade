@@ -21,8 +21,8 @@ public class Atendimento {
     }
 
     public void getAllAtendimento() {
-        for (int i = 0; i < this.arrAtendimento.size(); i++) {
-            System.out.println();
+        for (Produto atendimento : arrAtendimento) {
+            System.out.println("-" + atendimento.getNome());
         }
     }
 

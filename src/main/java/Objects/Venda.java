@@ -29,8 +29,8 @@ public class Venda {
     }
 
     public void getAllVenda() {
-        for (int i = 0; i < this.arrVenda.size(); i++) {
-            System.out.println();
+        for (Produto venda : arrVenda) {
+            System.out.println("-" + venda.getNome());
         }
     }
 

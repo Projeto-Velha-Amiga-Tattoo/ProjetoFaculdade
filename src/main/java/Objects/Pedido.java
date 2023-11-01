@@ -22,13 +22,13 @@ public class Pedido {
     }
 
     // Metodos ArayList
-    public void addPedido(Produto prod) {
-        this.arrPedido.add(prod);
+    public void addPedido(Produto pedido) {
+        this.arrPedido.add(pedido);
     }
 
     public void getAllPedido() {
-        for (int i = 0; i < this.arrPedido.size(); i++) {
-            System.out.println();
+        for (Produto pedido : arrPedido) {
+            System.out.println("-" + pedido.getNome());
         }
     }
 
