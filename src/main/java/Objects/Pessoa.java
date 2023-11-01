@@ -45,7 +45,14 @@ public class Pessoa {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        try {
+            Validacoes.Nome.validarNomes(nome);
+
+            this.nome = nome;
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Erro na criação do objeto: " + e.getMessage());
+        }
     }
 
     public String getCpf() {
@@ -53,7 +60,16 @@ public class Pessoa {
     }
 
     public void setCpf(String cpf) {
-        this.cpf = cpf;
+        try {
+
+            Validacoes.Cpf.validarCPF(cpf);
+            Validacoes.Cpf.CPFVerdadeiro(cpf);
+
+            this.cpf = cpf;
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Erro na criação do objeto: " + e.getMessage());
+        }
     }
 
     public String getTelefone() {
@@ -61,7 +77,15 @@ public class Pessoa {
     }
 
     public void setTelefone(String telefone) {
-        this.telefone = telefone;
+        try {
+
+            Validacoes.Telefone.validarTelefone(telefone);
+
+            this.telefone = telefone;
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Erro na criação do objeto: " + e.getMessage());
+        }
     }
 
     public String getData_nasc() {

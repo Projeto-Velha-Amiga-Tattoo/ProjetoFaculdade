@@ -14,25 +14,24 @@ public class Fornecedor {
             Validacoes.Cnpj.validarCNPJ(cnpj);
             Validacoes.Cnpj.CNPJVerdadeiro(cnpj);
             Validacoes.Telefone.validarTelefone(telefone);
-                this.id_fornecedor = id_fornecedor;
-                this.nome = nome;
-                this.cnpj = cnpj;
-                this.telefone = telefone;
-                this.endereco = endereco;
-           
-        } catch (IllegalArgumentException e){
-           System.out.println("Erro na criação do objeto: " + e.getMessage());
+            this.id_fornecedor = id_fornecedor;
+            this.nome = nome;
+            this.cnpj = cnpj;
+            this.telefone = telefone;
+            this.endereco = endereco;
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Erro na criação do objeto: " + e.getMessage());
         }
-  
-    }     
-    
+
+    }
+
     public String exibirFornecedor() {
         String str = "Fornecedor: " + getNome() + "\n" + "CNPJ: " + getCnpj() + "\n"
                 + "Telefone: " + getTelefone() + "\n" + "Endereço: "
                 + getEndereco().getRua() + "," + getEndereco().getNumero() + "(" + getEndereco().getComplemento() + ")," + getEndereco().getBairro() + "," + getEndereco().getCidade() + "," + getEndereco().getEstado();
         return str;
     }
-    
 
     public int getId_fornecedor() {
         return id_fornecedor;
@@ -47,7 +46,14 @@ public class Fornecedor {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        try {
+            Validacoes.Nome.validarNomes(nome);
+
+            this.nome = nome;
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Erro na criação do objeto: " + e.getMessage());
+        }
     }
 
     public String getCnpj() {
@@ -55,7 +61,16 @@ public class Fornecedor {
     }
 
     public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+        try {
+
+            Validacoes.Cnpj.validarCNPJ(cnpj);
+            Validacoes.Cnpj.CNPJVerdadeiro(cnpj);
+
+            this.cnpj = cnpj;
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Erro na criação do objeto: " + e.getMessage());
+        }
     }
 
     public String getTelefone() {
@@ -63,7 +78,15 @@ public class Fornecedor {
     }
 
     public void setTelefone(String telefone) {
-        this.telefone = telefone;
+        try {
+
+            Validacoes.Telefone.validarTelefone(telefone);
+
+            this.telefone = telefone;
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Erro na criação do objeto: " + e.getMessage());
+        }
     }
 
     public Endereco getEndereco() {
@@ -73,7 +96,5 @@ public class Fornecedor {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
-    
-    
 
 }

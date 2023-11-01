@@ -17,12 +17,12 @@ public class Endereco {
     }
 
     // Falta a validação para poder inserir somente numero inteiro.
-   
     public Endereco(int id_endereco, String rua, String bairro, int numero, String complemento, String cidade, String cep, String estado) {
         try {
             Validacoes.Nome.validarNomes(rua);
             Validacoes.Nome.validarNomes(bairro);
             Validacoes.Nome.validarNomes(cidade);
+            Validacoes.Nome.validarNomes(estado);
             Validacoes.Cep.validarCEP(cep);
             this.id_endereco = id_endereco;
             this.rua = rua;
@@ -54,7 +54,14 @@ public class Endereco {
     }
 
     public void setRua(String rua) {
-        this.rua = rua;
+        try {
+            Validacoes.Nome.validarNomes(rua);
+
+            this.rua = rua;
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Ocorreu um erro na criação do objeto: " + e.getMessage());
+        }
     }
 
     public String getBairro() {
@@ -62,7 +69,15 @@ public class Endereco {
     }
 
     public void setBairro(String bairro) {
-        this.bairro = bairro;
+        try {
+
+            Validacoes.Nome.validarNomes(bairro);
+
+            this.bairro = bairro;
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Ocorreu um erro na criação do objeto: " + e.getMessage());
+        }
     }
 
     public int getNumero() {
@@ -86,7 +101,15 @@ public class Endereco {
     }
 
     public void setCidade(String cidade) {
-        this.cidade = cidade;
+        try {
+
+            Validacoes.Nome.validarNomes(cidade);
+
+            this.cidade = cidade;
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Ocorreu um erro na criação do objeto: " + e.getMessage());
+        }
     }
 
     public String getCep() {
@@ -94,7 +117,15 @@ public class Endereco {
     }
 
     public void setCep(String cep) {
-        this.cep = cep;
+        try {
+
+            Validacoes.Cep.validarCEP(cep);
+
+            this.cep = cep;
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Ocorreu um erro na criação do objeto: " + e.getMessage());
+        }
     }
 
     public String getEstado() {
@@ -102,6 +133,14 @@ public class Endereco {
     }
 
     public void setEstado(String estado) {
-        this.estado = estado;
+        try {
+
+            Validacoes.Nome.validarNomes(estado);
+
+            this.estado = estado;
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Ocorreu um erro na criação do objeto: " + e.getMessage());
+        }
     }
 }

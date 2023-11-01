@@ -12,9 +12,8 @@ public class Agendamento {
     private String observacao;
     private Servico servico;
 
-    
-    // DATA já está com esse formatador, portanto acho que não precisa de um validador.
     DateTimeFormatter data = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+    
     // Construtores de Agendamento
 
     public Agendamento() {
