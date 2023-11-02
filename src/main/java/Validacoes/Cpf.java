@@ -2,13 +2,23 @@ package Validacoes;
 
 public class Cpf {
 
-    public static boolean validarCPF(String x) {
+    public static boolean validarCPF(String cpf) {
         boolean teste = false;
-        teste = x.matches("[0-9]{11}");
-        if (teste == false){
+        teste = cpf.matches("[0-9]{11}");
+        if (teste == false) {
             throw new IllegalArgumentException("O CPF não está no formato correto.");
+        } else {
+            char firstDigit = cpf.charAt(0);
+            for (int i = 1; i < cpf.length(); i++) {
+                if (cpf.charAt(i) != firstDigit) {
+                    return true;
+                } else{
+                    throw new IllegalArgumentException("O CPF é inválido: " + cpf);
+                }
+            }
         }
         return teste;
+
     }
 
     public static boolean CPFVerdadeiro(String x) {
@@ -22,7 +32,7 @@ public class Cpf {
         if (dv1 > 9) {
             dv1 = 0;
         }
-        if (dv1 == Character.getNumericValue(x.charAt(9))) {   
+        if (dv1 == Character.getNumericValue(x.charAt(9))) {
             cont = 11;
             soma = 0;
             for (int y = 0; y < 10; y++) {
@@ -39,7 +49,7 @@ public class Cpf {
             }
             if (dv2 == Character.getNumericValue(x.charAt(10))) {
                 teste = true;
-            } else{
+            } else {
                 teste = false;
                 throw new IllegalArgumentException("O CPF não existe.");
             }
