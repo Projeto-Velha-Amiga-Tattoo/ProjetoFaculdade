@@ -1,29 +1,14 @@
 package Objects;
 
-import java.util.ArrayList;
-
 public class Atendimento {
 
     private int id_atendimento;
     private Agendamento agendamento;
-    private ArrayList<Produto> arrAtendimento;
 
     // Talvez dê para criar um metódo para exibir os dados do agendamento, igual fiz em outras classes.
-    public Atendimento(int id_atendimento, Agendamento agendamento, ArrayList<Produto> arrAtendimento) {
+    public Atendimento(int id_atendimento, Agendamento agendamento) {
         this.id_atendimento = id_atendimento;
         this.agendamento = agendamento;
-        this.arrAtendimento = arrAtendimento;
-    }
-
-    // Métodos do ArrayList
-    public void addAtendimento(Produto atendimento) {
-        this.arrAtendimento.add(atendimento);
-    }
-
-    public void getAllAtendimento() {
-        for (Produto atendimento : arrAtendimento) {
-            System.out.println("-" + atendimento.getNome());
-        }
     }
 
     // Getters and Setters
@@ -43,12 +28,5 @@ public class Atendimento {
         this.agendamento = agendamento;
     }
 
-    public ArrayList<Produto> getArrAtendimento() {
-        return arrAtendimento;
-    }
-
-    public void setArrAtendimento(ArrayList<Produto> arrAtendimento) {
-        this.arrAtendimento = arrAtendimento;
-    }
 
 }
