@@ -26,6 +26,7 @@ public class Pessoa {
             Validacoes.Cpf.validarCPF(cpf);
             Validacoes.Cpf.CPFVerdadeiro(cpf);
             Validacoes.Telefone.validarTelefone(telefone);
+            Validacoes.Data.dataVerdadeira(data_nasc);
             this.nome = nome;
             this.cpf = cpf;
             this.telefone = telefone;

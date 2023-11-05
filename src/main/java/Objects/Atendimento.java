@@ -6,8 +6,7 @@ public class Atendimento {
     private Agendamento agendamento;
 
     // Talvez dê para criar um metódo para exibir os dados do agendamento, igual fiz em outras classes.
-    public Atendimento(int id_atendimento, Agendamento agendamento) {
-        this.id_atendimento = id_atendimento;
+    public Atendimento(Agendamento agendamento) {
         this.agendamento = agendamento;
     }
 

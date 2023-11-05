@@ -13,20 +13,23 @@ public class Agendamento {
     private Servico servico;
 
     DateTimeFormatter data = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-    
-    // Construtores de Agendamento
 
+    // Construtores de Agendamento
     public Agendamento() {
 
     }
 
-    public Agendamento(int id_agendamento, Funcionario funcionario, Cliente cliente, String horario, Servico servico, String observacao) {
-        this.id_agendamento = id_agendamento;
-        this.funcionario = funcionario;
-        this.cliente = cliente;
-        this.horario = LocalDateTime.parse(horario, data);
-        this.servico = servico;
-        this.observacao = observacao;
+    public Agendamento(Funcionario funcionario, Cliente cliente, String horario, Servico servico, String observacao) {
+        try {
+            Validacoes.Data.dataVerdadeira(horario);
+            this.funcionario = funcionario;
+            this.cliente = cliente;
+            this.horario = LocalDateTime.parse(horario, data);
+            this.servico = servico;
+            this.observacao = observacao;
+        } catch (IllegalArgumentException e) {
+            System.out.println("Erro na criação do objeto: " + e.getMessage());
+        }
     }
 
     public String exibirAgendamento() {
@@ -64,7 +67,13 @@ public class Agendamento {
     }
 
     public void setHorario(String horario) {
-        this.horario = LocalDateTime.parse(horario, data);
+        try {
+            Validacoes.Data.dataVerdadeira(horario);
+            this.horario = LocalDateTime.parse(horario, data);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Erro na criação do objeto: " + e.getMessage());
+        }
+
     }
 
     public Servico getServico() {

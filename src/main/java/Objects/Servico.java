@@ -10,8 +10,7 @@ public class Servico {
 
     }
 
-    public Servico(int id_servico, String nome) {
-        this.id_servico = id_servico;
+    public Servico(String nome) {
         this.nome = nome;
     }
 

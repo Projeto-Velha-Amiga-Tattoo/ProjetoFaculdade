@@ -17,14 +17,13 @@ public class Endereco {
     }
 
     // Falta a validação para poder inserir somente numero inteiro.
-    public Endereco(int id_endereco, String rua, String bairro, int numero, String complemento, String cidade, String cep, String estado) {
+    public Endereco(String rua, String bairro, int numero, String complemento, String cidade, String cep, String estado) {
         try {
             Validacoes.Nome.validarNomes(rua);
             Validacoes.Nome.validarNomes(bairro);
             Validacoes.Nome.validarNomes(cidade);
             Validacoes.Nome.validarNomes(estado);
             Validacoes.Cep.validarCEP(cep);
-            this.id_endereco = id_endereco;
             this.rua = rua;
             this.bairro = bairro;
             this.numero = numero;
