@@ -1,6 +1,6 @@
 package Objects;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Agendamento {
@@ -8,23 +8,25 @@ public class Agendamento {
     private int id_agendamento;
     private Funcionario funcionario;
     private Cliente cliente;
-    private LocalDateTime horario;
+    private LocalDate data;
+    private String horario;
     private String observacao;
     private Servico servico;
 
-    DateTimeFormatter data = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+    DateTimeFormatter date = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     // Construtores de Agendamento
     public Agendamento() {
 
     }
 
-    public Agendamento(Funcionario funcionario, Cliente cliente, String horario, Servico servico, String observacao) {
+    public Agendamento(Funcionario funcionario, Cliente cliente, String data, String horario, Servico servico, String observacao) {
         try {
             Validacoes.Data.dataVerdadeira(horario);
             this.funcionario = funcionario;
             this.cliente = cliente;
-            this.horario = LocalDateTime.parse(horario, data);
+            this.data = LocalDate.parse(horario, date);
+            this.horario = horario;
             this.servico = servico;
             this.observacao = observacao;
         } catch (IllegalArgumentException e) {
@@ -62,19 +64,28 @@ public class Agendamento {
         this.cliente = cliente;
     }
 
-    public String getHorario() {
-        return data.format(horario);
+    public String getData() {
+        return data.format(date);
     }
 
-    public void setHorario(String horario) {
+    public void setData(String data) {
         try {
             Validacoes.Data.dataVerdadeira(horario);
-            this.horario = LocalDateTime.parse(horario, data);
+            this.data = LocalDate.parse(horario, date);
         } catch (IllegalArgumentException e) {
             System.out.println("Erro na criação do objeto: " + e.getMessage());
         }
 
     }
+
+    public String getHorario() {
+        return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+  
 
     public Servico getServico() {
         return servico;
